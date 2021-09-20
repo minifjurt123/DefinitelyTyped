@@ -21,11 +21,17 @@ export class Settings {
     static set now(now: () => number);
 
     /**
-     * The default time zone object currently used to create DateTimes. Does not affect existing instances.
+     * Get the default time zone object currently used to create DateTimes. Does not affect existing instances.
      * The default value is the system's time zone (the one set on the machine that runs this code).
-     * Getting this property always returns a Zone object.
-     */
-    static defaultZone: Zone | string;
+    */
+    static get defaultZone(): Zone | string;
+    
+    /**
+    * Set the default time zone to create DateTimes in. Does not affect existing instances.
+    * Use the value "system" to reset this value to the system's time zone.
+    * @type {string}
+    */
+    static set defaultZone(zone: string);
 
     /**
      * Get the default locale to create DateTimes with. Does not affect existing instances.
